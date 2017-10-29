@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SURCISM</string>
+    <string name="connect_bluetooth">Connect to Bluetooth</string>
+    <string name="default_ultra_indication">100cm</string>
+
+    <string name="default_ultra_log">
+       \n 100cm\n 100cm\n 100cm\n 100cm\n 100cm\n 100cm\n 100cm\n 100cm\n 100cm
+    </string>
+    <string name="ultrasonic_robot">Ultrasonic Robot</string>
+    <string name="infrared_robot">Line Follower</string>
+    <string name="rc_robot">Remote Control Robot</string>
+    <string name="self_balance_robot">Self Balancing Robot</string>
+    <string name="default_infra_data">100</string>
+
+</resources>

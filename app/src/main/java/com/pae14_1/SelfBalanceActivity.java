@@ -2,6 +2,8 @@ package com.pae14_1;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 
 public class SelfBalanceActivity extends AppCompatActivity {
 
@@ -9,7 +11,21 @@ public class SelfBalanceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_self_balance);
-        setTitle(this.getString(R.string.self_balance_robot));
-       // getActionBar().setHomeButtonEnabled(true);
+        setTitle("Self Balance");
+
+        setSupportActionBar((Toolbar) findViewById(R.id.mainToolbar));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

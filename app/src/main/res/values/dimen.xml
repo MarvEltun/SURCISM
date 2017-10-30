@@ -11,8 +11,9 @@
     <dimen name="ultra_log_txt_height">260dp</dimen>
 
     <dimen name="infra_color_size">100dp</dimen>
-    <dimen name="infra_color_margin">10dp</dimen>
-    <dimen name="infra_text_margin">10dp</dimen>
+    <dimen name="infra_color_margin">5dp</dimen>
+    <dimen name="infra_text_margin">5dp</dimen>
+    <dimen name="ultra_padding">20dp</dimen>
     <dimen name="infra_text_height">100dp</dimen>
     <dimen name="infra_text_width">100dp</dimen>
     <dimen name="infra_text_size">35sp</dimen>

@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/mainToolbar"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
         android:id="@+id/colorData">
     <View
         android:layout_width="@dimen/infra_color_size"
@@ -56,10 +56,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/colorData"
         android:layout_margin="@dimen/infra_text_margin"
+       android:layout_centerHorizontal="true"
         >
         <TextView
-            android:layout_width="@dimen/infra_text_width"
-            android:layout_height="@dimen/infra_text_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/ultra_padding"
             android:textColor="@color/black"
             android:text="@string/default_infra_data"
             android:background="@color/white"
@@ -68,8 +70,9 @@
             android:id="@+id/leftSensorNumberData"
             android:layout_margin="@dimen/infra_text_margin"/>
         <TextView
-            android:layout_width="@dimen/infra_text_width"
-            android:layout_height="@dimen/infra_text_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/ultra_padding"
             android:layout_toRightOf="@id/leftSensorNumberData"
             android:id="@+id/middleSensorNumberData"
             android:layout_margin="@dimen/infra_text_margin"
@@ -79,8 +82,9 @@
             android:text="@string/default_infra_data"
             android:gravity="center"/>
         <TextView
-            android:layout_width="@dimen/infra_text_width"
-            android:layout_height="@dimen/infra_text_height"
+            android:layout_width="wrap_content"
+            android:padding="@dimen/ultra_padding"
+            android:layout_height="wrap_content"
             android:layout_toRightOf="@id/middleSensorNumberData"
             android:id="@+id/rightSensorNumberData"
             android:layout_margin="@dimen/infra_text_margin"
@@ -90,4 +94,11 @@
             android:text="@string/default_infra_data"
             android:gravity="center"/>
     </RelativeLayout>
+    <ImageView
+        android:layout_width="@dimen/arrow_size"
+        android:layout_height="@dimen/arrow_size"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/forward_black"
+        android:tint="@color/white" />
 </RelativeLayout>

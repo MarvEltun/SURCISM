@@ -25,19 +25,77 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1.5"
-            android:background="@color/white"></RelativeLayout>
+            android:gravity="center"
+            >
+            <ImageButton
+                android:layout_width="@dimen/direction_button_size"
+                android:layout_height="@dimen/direction_button_size"
+                android:background="@drawable/circular_button"
+                android:scaleType="fitCenter"
+                android:src="@drawable/left_black"
+                android:id="@+id/left_control"
+                android:layout_margin="@dimen/control_button_margin"/>
+            <ImageButton
+                android:layout_width="@dimen/direction_button_size"
+                android:layout_height="@dimen/direction_button_size"
+                android:background="@drawable/circular_button"
+                android:layout_toRightOf="@id/left_control"
+                android:layout_margin="@dimen/control_button_margin"
+                android:scaleType="fitCenter"
+                android:src="@drawable/right_black"
+                />
+
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:background="@color/red"></RelativeLayout>
+            android:gravity="center"
+            >
+            <ImageButton
+                android:layout_width="@dimen/start_stop_button_size"
+                android:layout_height="@dimen/start_stop_button_size"
+                android:background="@drawable/circular_button"
+                android:scaleType="fitCenter"
+                android:src="@drawable/start_black"
+                android:id="@+id/start_control"
+                android:layout_margin="@dimen/control_button_margin"/>
+            <ImageButton
+                android:layout_width="@dimen/start_stop_button_size"
+                android:layout_height="@dimen/start_stop_button_size"
+                android:background="@drawable/circular_button"
+                android:layout_margin="@dimen/control_button_margin"
+                android:scaleType="fitCenter"
+                android:src="@drawable/stop_black"
+               android:layout_below="@id/start_control"
+                />
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1.5"
-            android:background="@color/blue"></RelativeLayout>
+            android:gravity="center"
+            >
+            <ImageButton
+                android:layout_width="@dimen/direction_button_size"
+                android:layout_height="@dimen/direction_button_size"
+                android:background="@drawable/circular_button"
+                android:scaleType="fitCenter"
+                android:src="@drawable/forward_black"
+                android:id="@+id/forward_control"
+                android:layout_margin="@dimen/control_button_margin"/>
+            <ImageButton
+                android:layout_width="@dimen/direction_button_size"
+                android:layout_height="@dimen/direction_button_size"
+                android:background="@drawable/circular_button"
+                android:layout_below="@id/forward_control"
+                android:layout_margin="@dimen/control_button_margin"
+                android:scaleType="fitCenter"
+                android:src="@drawable/reverse_black"
+                />
+        </RelativeLayout>
 
     </LinearLayout>
 </RelativeLayout>

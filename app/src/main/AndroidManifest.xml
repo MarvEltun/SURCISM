@@ -12,6 +12,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ConnectActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,11 +20,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomePageActivity" />
-        <activity android:name=".UltraSonicActivity" />
-        <activity android:name=".InfraRedActivity" />
-        <activity android:name=".RemoteControlActivity" />
-        <activity android:name=".SelfBalanceActivity"></activity>
+        <activity android:name=".HomePageActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".UltraSonicActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".InfraRedActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".RemoteControlActivity" android:screenOrientation="landscape" />
+        <activity android:name=".SelfBalanceActivity" android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

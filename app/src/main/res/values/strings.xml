@@ -12,4 +12,9 @@
     <string name="self_balance_robot">Self Balancing Robot</string>
     <string name="default_infra_data">100</string>
 
+    <string name="not_available_bluetooth">Bluetooth Device Not Available</string>
+    <string name="no_device_found">No Paired Bluetooth Devices Found</string>
+
+
+
 </resources>

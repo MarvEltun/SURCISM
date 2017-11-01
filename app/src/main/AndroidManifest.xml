@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".draft"
+            android:name=".Misc.draft"
             android:screenOrientation="portrait"></activity>
 
         <activity
@@ -31,16 +31,16 @@
             android:name=".HomePageActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".UltraSonicActivity"
+            android:name=".FunctionFragments.UltraSonicActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".InfraRedActivity"
+            android:name=".FunctionFragments.InfraRedActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".RemoteControlActivity"
+            android:name=".FunctionFragments.RemoteControlActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".SelfBalanceActivity"
+            android:name=".FunctionFragments.SelfBalanceActivity"
             android:screenOrientation="portrait" />
 
     </application>

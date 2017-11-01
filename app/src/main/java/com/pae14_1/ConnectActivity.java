@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,10 +19,11 @@ import java.util.Set;
 
 
 public class ConnectActivity extends AppCompatActivity {
-    Button blueCntBtn;
+    ImageButton blueCntBtn;
     private BluetoothAdapter myBluetooth = null;
     private Set<BluetoothDevice> pairedDevices;
     ListView devicelist;
+    ImageButton closeButton;
 
 
     private AdapterView.OnItemClickListener myListClickListener = new AdapterView.OnItemClickListener() {
@@ -29,6 +31,7 @@ public class ConnectActivity extends AppCompatActivity {
             // Get the device MAC address, the last 17 chars in the View
             String info = ((TextView) v).getText().toString();
             String address = info.substring(info.length() - 17);
+            Globals.address = address;
             // Make an intent to start next activity.
             Intent i = new Intent(ConnectActivity.this, HomePageActivity.class);
             //Change the activity.
@@ -42,8 +45,19 @@ public class ConnectActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connect);
-        blueCntBtn = (Button) findViewById(R.id.cnt_btn);
+        blueCntBtn = (ImageButton) findViewById(R.id.cnt_btn);
+        closeButton = (ImageButton) findViewById(R.id.list_close_btn);
+        devicelist = (ListView) findViewById(R.id.bluetooth_devices);
+
         enablingBluetooth();
+
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                makeListGone();
+            }
+        });
+
         blueCntBtn.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -87,14 +101,23 @@ public class ConnectActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "No Paired Bluetooth Devices Found.", Toast.LENGTH_LONG).show();
         }
 
-        devicelist = (ListView) findViewById(R.id.bluetooth_devices);
-        devicelist.setVisibility(View.VISIBLE);
+
+        makeListVisible();
         final ArrayAdapter adapter = new ArrayAdapter(this, R.layout.devices_item, list);
         devicelist.setAdapter(adapter);
         devicelist.setOnItemClickListener(myListClickListener); //Method called when the device from the list is clicked
-
     }
 
+
+    private void makeListVisible() {
+        devicelist.setVisibility(View.VISIBLE);
+        closeButton.setVisibility(View.VISIBLE);
+    }
+
+    private void makeListGone() {
+        devicelist.setVisibility(View.GONE);
+        closeButton.setVisibility(View.GONE);
+    }
 }
 
 

@@ -3,6 +3,7 @@
     <dimen name="circ_button_margin">10dp</dimen>
 
     <dimen name="circ_dimen">100dp</dimen>
+    <dimen name="cnt_dimen">130dp</dimen>
 
     <dimen name="ultra_txt_width">250dp</dimen>
     <dimen name="ultra_txt_height">80dp</dimen>

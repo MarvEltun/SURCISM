@@ -7,7 +7,7 @@
     android:background="@color/mainBckColor">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/mainToolbar"
+        android:id="@+id/ultraToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
@@ -18,7 +18,7 @@
         android:id="@+id/main_dist_indicator"
         android:layout_width="@dimen/ultra_txt_width"
         android:layout_height="@dimen/ultra_txt_height"
-        android:layout_below="@+id/mainToolbar"
+        android:layout_below="@+id/ultraToolbar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/circ_button_margin"
         android:background="@color/white"

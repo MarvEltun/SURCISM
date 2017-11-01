@@ -7,7 +7,7 @@
     android:background="@color/mainBckColor">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/mainToolbar"
+        android:id="@+id/remoteToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
@@ -17,7 +17,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/mainToolbar"
+        android:layout_below="@id/remoteToolbar"
         android:orientation="horizontal"
         android:weightSum="5">
 

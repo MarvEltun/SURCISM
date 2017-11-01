@@ -4,13 +4,19 @@ import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
-import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
+
+import com.pae14_1.FunctionFragments.InfraRedActivity;
+import com.pae14_1.FunctionFragments.RemoteControlActivity;
+import com.pae14_1.FunctionFragments.SelfBalanceActivity;
+import com.pae14_1.FunctionFragments.UltraSonicActivity;
+import com.pae14_1.Misc.Globals;
 
 import java.io.IOException;
 import java.util.UUID;
@@ -24,6 +30,9 @@ public class HomePageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
         ConnectBT connectBT = new ConnectBT();
         connectBT.execute();
+
+        setSupportActionBar((Toolbar) findViewById(R.id.mainToolbar));
+        setTitle("Home Page");
     }
 
     public void navigate(View v) {
@@ -59,7 +68,6 @@ public class HomePageActivity extends AppCompatActivity {
         BluetoothSocket btSocket = null;
         private boolean isBtConnected = false;
         final UUID myUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
-
 
 
         private boolean ConnectSuccess = true; //if it's here, it's almost connected

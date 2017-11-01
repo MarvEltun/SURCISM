@@ -8,11 +8,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.pae14_1.Misc.Globals;
 
 import java.util.ArrayList;
 import java.util.Set;
@@ -35,7 +36,7 @@ public class ConnectActivity extends AppCompatActivity {
             // Make an intent to start next activity.
             Intent i = new Intent(ConnectActivity.this, HomePageActivity.class);
             //Change the activity.
-            Toast.makeText(getApplicationContext(), address, Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(), address, Toast.LENGTH_LONG).show();
             //i.putExtra(EXTRA_ADDRESS, address); //this will be received at ledControl (class) Activity
             startActivity(i);
         }

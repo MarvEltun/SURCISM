@@ -14,6 +14,9 @@
 
     <string name="not_available_bluetooth">Bluetooth Device Not Available</string>
     <string name="no_device_found">No Paired Bluetooth Devices Found</string>
+    <string name="connect">CONNECT</string>
+    <string name="cnt_failed">Connection Failed. Is it a SPP Bluetooth? Try again</string>
+    <string name="connected">CONNECTED</string>
 
 
 

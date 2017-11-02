@@ -6,7 +6,10 @@ package com.pae14_1.FunctionFragments;
 
 import android.support.v4.app.Fragment;
 
-public class MainFragment extends  Fragment{
+public class MainFragment extends Fragment {
 
+    public void onBackPressed() {
+
+    }
 
 }

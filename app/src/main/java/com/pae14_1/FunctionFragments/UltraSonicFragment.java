@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.pae14_1.HomePageActivity;
 import com.pae14_1.R;
 
 /**
@@ -27,8 +28,17 @@ public class UltraSonicFragment extends MainFragment {
         return rootView;
     }
 
-    public void initUI(){
+    public void initUI() {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        ((HomePageActivity) getActivity()).getSupportFragmentManager().popBackStack();
+        ((HomePageActivity) getActivity()).getSupportActionBar().setTitle(HomePageFragment.classTitle);
+        ((HomePageActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+    }
+
 }
+
+

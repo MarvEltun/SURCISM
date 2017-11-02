@@ -1,5 +1,6 @@
 package com.pae14_1;
 
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
@@ -23,6 +24,8 @@ import com.pae14_1.FunctionFragments.UltraSonicFragment;
 import com.pae14_1.Misc.Globals;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class HomePageActivity extends AppCompatActivity {
@@ -44,10 +47,15 @@ public class HomePageActivity extends AppCompatActivity {
         ft.replace(R.id.fragment_container, fragmentClass); // f1_container is your FrameLayout container
         //ft.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
         setTitle(title);
-        if (backEnabled)
+        if (backEnabled) {
             ft.addToBackStack(null);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        } else {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        }
         ft.commit();
     }
+
 
     public void navigate(View v) {
         Intent intent;
@@ -124,5 +132,22 @@ public class HomePageActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        List<Fragment> arrayList =  getSupportFragmentManager().getFragments();
 
+        //Todo: optimize this algo!
+        int count = 0;
+        for (Fragment item : arrayList) {
+            if (item != null) {
+                count++;
+            } else {
+                break;
+            }
+        }
+
+        ((MainFragment)arrayList.get(count - 1)).onBackPressed();
+
+
+    }
 }

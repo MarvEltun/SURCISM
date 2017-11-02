@@ -11,6 +11,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -132,9 +133,22 @@ public class HomePageActivity extends AppCompatActivity {
         }
     }
 
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
     @Override
     public void onBackPressed() {
-        List<Fragment> arrayList =  getSupportFragmentManager().getFragments();
+        List<Fragment> arrayList = getSupportFragmentManager().getFragments();
 
         //Todo: optimize this algo!
         int count = 0;
@@ -145,9 +159,11 @@ public class HomePageActivity extends AppCompatActivity {
                 break;
             }
         }
-
-        ((MainFragment)arrayList.get(count - 1)).onBackPressed();
-
+        if (count > 1) {
+            ((MainFragment) arrayList.get(count - 1)).onBackPressed();
+        } else {
+            super.onBackPressed();
+        }
 
     }
 }

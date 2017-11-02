@@ -3,6 +3,7 @@ package com.pae14_1.FunctionFragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -30,7 +31,9 @@ public class UltraSonicFragment extends MainFragment {
 
     public void initUI() {
 
+
     }
+
 
     @Override
     public void onBackPressed() {

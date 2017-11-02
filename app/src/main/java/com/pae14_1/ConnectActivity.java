@@ -39,6 +39,7 @@ public class ConnectActivity extends AppCompatActivity {
             //Toast.makeText(getApplicationContext(), address, Toast.LENGTH_LONG).show();
             //i.putExtra(EXTRA_ADDRESS, address); //this will be received at ledControl (class) Activity
             startActivity(i);
+            ConnectActivity.this.finish();
         }
     };
 

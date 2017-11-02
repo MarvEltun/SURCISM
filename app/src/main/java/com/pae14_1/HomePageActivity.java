@@ -1,5 +1,6 @@
 package com.pae14_1;
 
+import android.support.v4.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -16,6 +17,7 @@ import com.pae14_1.FunctionFragments.InfraRedActivity;
 import com.pae14_1.FunctionFragments.RemoteControlActivity;
 import com.pae14_1.FunctionFragments.SelfBalanceActivity;
 import com.pae14_1.FunctionFragments.UltraSonicActivity;
+import com.pae14_1.FunctionFragments.UltraSonicFragment;
 import com.pae14_1.Misc.Globals;
 
 import java.io.IOException;
@@ -28,11 +30,20 @@ public class HomePageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-       // ConnectBT connectBT = new ConnectBT();
-       // connectBT.execute();
-
+        // ConnectBT connectBT = new ConnectBT();
+        // connectBT.execute();
         setSupportActionBar((Toolbar) findViewById(R.id.mainToolbar));
         setTitle("Home Page");
+
+        openHomePageFragment();
+    }
+
+    private void openHomePageFragment() {
+        UltraSonicFragment f1 = new UltraSonicFragment();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.fragment_container, f1); // f1_container is your FrameLayout container
+        //ft.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
+        ft.commit();
     }
 
     public void navigate(View v) {

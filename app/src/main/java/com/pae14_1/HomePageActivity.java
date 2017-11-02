@@ -28,8 +28,8 @@ public class HomePageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        ConnectBT connectBT = new ConnectBT();
-        connectBT.execute();
+       // ConnectBT connectBT = new ConnectBT();
+       // connectBT.execute();
 
         setSupportActionBar((Toolbar) findViewById(R.id.mainToolbar));
         setTitle("Home Page");

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@id/mainToolbar"
+    android:background="@color/mainBckColor">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <ImageButton
+            android:id="@+id/ultra_sonic"
+            android:layout_width="@dimen/circ_dimen"
+            android:layout_height="@dimen/circ_dimen"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/circ_button_margin"
+            android:background="@drawable/circular_button"
+            android:onClick="navigate"
+            android:padding="15dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/volume_black" />
+
+        <ImageButton
+            android:id="@+id/infrared"
+            android:layout_width="@dimen/circ_dimen"
+            android:layout_height="@dimen/circ_dimen"
+            android:layout_below="@id/ultra_sonic"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/circ_button_margin"
+            android:background="@drawable/circular_button"
+            android:onClick="navigate"
+            android:padding="15dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ultrasonic_black" />
+
+        <ImageButton
+            android:id="@+id/rc"
+            android:layout_width="@dimen/circ_dimen"
+            android:layout_height="@dimen/circ_dimen"
+            android:layout_below="@id/infrared"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/circ_button_margin"
+            android:background="@drawable/circular_button"
+            android:onClick="navigate"
+            android:padding="15dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/remote_black" />
+
+        <ImageButton
+            android:id="@+id/self_balance"
+            android:layout_width="@dimen/circ_dimen"
+            android:layout_height="@dimen/circ_dimen"
+            android:layout_below="@id/rc"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/circ_button_margin"
+            android:background="@drawable/circular_button"
+            android:onClick="navigate"
+            android:padding="15dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ultrasonic_black" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

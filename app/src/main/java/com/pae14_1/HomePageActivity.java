@@ -13,7 +13,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
+import com.pae14_1.FunctionFragments.HomePageFragment;
 import com.pae14_1.FunctionFragments.InfraRedActivity;
+import com.pae14_1.FunctionFragments.MainFragment;
 import com.pae14_1.FunctionFragments.RemoteControlActivity;
 import com.pae14_1.FunctionFragments.SelfBalanceActivity;
 import com.pae14_1.FunctionFragments.UltraSonicActivity;
@@ -33,16 +35,17 @@ public class HomePageActivity extends AppCompatActivity {
         // ConnectBT connectBT = new ConnectBT();
         // connectBT.execute();
         setSupportActionBar((Toolbar) findViewById(R.id.mainToolbar));
-        setTitle("Home Page");
 
-        openHomePageFragment();
+        openFragment(new HomePageFragment(), HomePageFragment.classTitle, false);
     }
 
-    private void openHomePageFragment() {
-        UltraSonicFragment f1 = new UltraSonicFragment();
+    private void openFragment(MainFragment fragmentClass, String title, boolean backEnabled) {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.fragment_container, f1); // f1_container is your FrameLayout container
+        ft.replace(R.id.fragment_container, fragmentClass); // f1_container is your FrameLayout container
         //ft.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
+        setTitle(title);
+        if (backEnabled)
+            ft.addToBackStack(null);
         ft.commit();
     }
 
@@ -50,8 +53,7 @@ public class HomePageActivity extends AppCompatActivity {
         Intent intent;
         switch (v.getId()) {
             case R.id.ultra_sonic:
-                intent = new Intent(HomePageActivity.this, UltraSonicActivity.class);
-                startActivity(intent);
+                openFragment(new UltraSonicFragment(), UltraSonicFragment.classTitle, true);
                 break;
             case R.id.infrared:
                 intent = new Intent(HomePageActivity.this, InfraRedActivity.class);

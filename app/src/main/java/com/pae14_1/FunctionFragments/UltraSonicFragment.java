@@ -15,6 +15,7 @@ import com.pae14_1.R;
 public class UltraSonicFragment extends MainFragment {
 
     public View rootView;
+    public final static String classTitle = "Ultrasonic";
 
     @Nullable
     @Override

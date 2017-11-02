@@ -48,18 +48,6 @@
             android:scaleType="fitCenter"
             android:src="@drawable/remote_black" />
 
-        <ImageButton
-            android:id="@+id/self_balance"
-            android:layout_width="@dimen/circ_dimen"
-            android:layout_height="@dimen/circ_dimen"
-            android:layout_below="@id/rc"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="@dimen/circ_button_margin"
-            android:background="@drawable/circular_button"
-            android:onClick="navigate"
-            android:padding="15dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ultrasonic_black" />
 
     </RelativeLayout>
 

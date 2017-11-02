@@ -16,11 +16,13 @@ import com.pae14_1.R;
 public class HomePageFragment extends MainFragment {
 
     public View rootView;
+    public final static String classTitle = "Home Page";
+
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.activity_draft, container, false);
+        rootView = inflater.inflate(R.layout.fragment_home_page, container, false);
 
         initUI();
 

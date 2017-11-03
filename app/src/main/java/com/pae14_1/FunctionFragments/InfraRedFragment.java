@@ -54,7 +54,8 @@ public class InfraRedFragment extends MainFragment {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (fromUser) {
-                    ((TextView) rootView.findViewById(R.id.seekbar_data)).setText("b" + String.valueOf(progress) + "e");
+                    double value = (progress / 100.0) * 255.0;
+                    ((TextView) rootView.findViewById(R.id.seekbar_data)).setText(String.valueOf(Math.floor(value)));
                     try {
                         ((HomePageActivity) getActivity()).connectBT.btSocket
                                 .getOutputStream().write(("b" + String.valueOf(progress) + "e").getBytes());

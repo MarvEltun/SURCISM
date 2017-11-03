@@ -104,6 +104,18 @@ public class HomePageActivity extends AppCompatActivity {
 
         private boolean ConnectSuccess = true; //if it's here, it's almost connected
 
+        private void Disconnect() {
+            if (btSocket != null) //If the btSocket is busy
+            {
+                try {
+                    btSocket.close(); //close connection
+                } catch (IOException e) {
+                    Toast.makeText(HomePageActivity.this, HomePageActivity.this.getString(R.string.error), Toast.LENGTH_LONG).show();
+                }
+            }
+            finish(); //return to the first layout
+        }
+
         @Override
         protected void onPreExecute() {
             progress = ProgressDialog.show(HomePageActivity.this, "Connecting...", "Please wait!!!");  //show a progress dialog
@@ -175,4 +187,6 @@ public class HomePageActivity extends AppCompatActivity {
         }
 
     }
+
+
 }

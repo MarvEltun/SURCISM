@@ -1,11 +1,14 @@
 package com.pae14_1.FunctionFragments;
 
+import android.app.Activity;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.pae14_1.HomePageActivity;
 import com.pae14_1.R;
 
 
@@ -28,7 +31,14 @@ public class HomePageFragment extends MainFragment {
 
         return rootView;
     }
-
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if(isVisibleToUser) {
+            Activity a = getActivity();
+            if(a != null) a.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
+    }
     public void initUI(){
 
     }

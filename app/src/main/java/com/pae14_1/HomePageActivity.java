@@ -1,5 +1,6 @@
 package com.pae14_1;
 
+import android.content.pm.ActivityInfo;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.app.ProgressDialog;
@@ -17,8 +18,10 @@ import android.widget.Toast;
 
 import com.pae14_1.FunctionFragments.HomePageFragment;
 import com.pae14_1.FunctionFragments.InfraRedActivity;
+import com.pae14_1.FunctionFragments.InfraRedFragment;
 import com.pae14_1.FunctionFragments.MainFragment;
 import com.pae14_1.FunctionFragments.RemoteControlActivity;
+import com.pae14_1.FunctionFragments.RemoteControlFragment;
 import com.pae14_1.FunctionFragments.SelfBalanceActivity;
 import com.pae14_1.FunctionFragments.UltraSonicActivity;
 import com.pae14_1.FunctionFragments.UltraSonicFragment;
@@ -39,8 +42,14 @@ public class HomePageActivity extends AppCompatActivity {
         // ConnectBT connectBT = new ConnectBT();
         // connectBT.execute();
         setSupportActionBar((Toolbar) findViewById(R.id.mainToolbar));
-
-        openFragment(new HomePageFragment(), HomePageFragment.classTitle, false);
+        if (savedInstanceState == null) {
+            openFragment(new HomePageFragment(), HomePageFragment.classTitle, false);
+        }else{
+            //Todo: This is kind of hard coded solution.
+            //Todo: This line should be replaced with much more universal solution.
+            //Todo: It says that screen can be landscape mode only in remote control fragment.
+          //  openFragment(new RemoteControlFragment(), RemoteControlFragment.classTitle, true);
+        }
     }
 
     private void openFragment(MainFragment fragmentClass, String title, boolean backEnabled) {
@@ -65,12 +74,11 @@ public class HomePageActivity extends AppCompatActivity {
                 openFragment(new UltraSonicFragment(), UltraSonicFragment.classTitle, true);
                 break;
             case R.id.infrared:
-                intent = new Intent(HomePageActivity.this, InfraRedActivity.class);
-                startActivity(intent);
+                openFragment(new InfraRedFragment(), InfraRedFragment.classTitle, true);
                 break;
             case R.id.rc:
-                intent = new Intent(HomePageActivity.this, RemoteControlActivity.class);
-                startActivity(intent);
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                openFragment(new RemoteControlFragment(), RemoteControlFragment.classTitle, true);
                 break;
             case R.id.self_balance:
                 intent = new Intent(HomePageActivity.this, SelfBalanceActivity.class);

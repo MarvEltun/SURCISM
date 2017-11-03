@@ -4,88 +4,139 @@
     android:layout_height="match_parent"
     android:layout_below="@id/mainToolbar"
     android:background="@color/mainBckColor">
+
     <RelativeLayout
+        android:id="@+id/colorData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/infraToolbar"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/colorData">
+        android:layout_centerHorizontal="true">
+
         <View
-            android:layout_width="@dimen/infra_color_size"
-            android:layout_height="@dimen/infra_color_size"
-            android:background="@drawable/circular_button"
-            android:backgroundTint="@color/white"
             android:id="@+id/leftSensorColorData"
-            android:layout_margin="@dimen/infra_color_margin"
-            >
-
-        </View>
-        <View
             android:layout_width="@dimen/infra_color_size"
             android:layout_height="@dimen/infra_color_size"
+            android:layout_margin="@dimen/infra_color_margin"
             android:background="@drawable/circular_button"
+            android:backgroundTint="@color/white">
+
+        </View>
+
+        <View
             android:id="@+id/middleSensorColorData"
-            android:layout_toRightOf="@id/leftSensorColorData"
-            android:backgroundTint="@color/black"
-            android:layout_margin="@dimen/infra_color_margin"
-            >
-
-        </View>
-        <View
             android:layout_width="@dimen/infra_color_size"
             android:layout_height="@dimen/infra_color_size"
-            android:background="@drawable/circular_button"
-            android:id="@+id/rightSensorColorData"
-            android:layout_toRightOf="@id/middleSensorColorData"
-            android:backgroundTint="@color/white"
             android:layout_margin="@dimen/infra_color_margin"
-            >
+            android:layout_toRightOf="@id/leftSensorColorData"
+            android:background="@drawable/circular_button"
+            android:backgroundTint="@color/black">
+
+        </View>
+
+        <View
+            android:id="@+id/rightSensorColorData"
+            android:layout_width="@dimen/infra_color_size"
+            android:layout_height="@dimen/infra_color_size"
+            android:layout_margin="@dimen/infra_color_margin"
+            android:layout_toRightOf="@id/middleSensorColorData"
+            android:background="@drawable/circular_button"
+            android:backgroundTint="@color/white">
 
         </View>
     </RelativeLayout>
+
     <RelativeLayout
+        android:id="@+id/indicatorsContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/colorData"
-        android:layout_margin="@dimen/infra_text_margin"
         android:layout_centerHorizontal="true"
-        >
+        android:layout_margin="@dimen/infra_text_margin">
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/ultra_padding"
-            android:textColor="@color/black"
-            android:text="@string/default_infra_data"
-            android:background="@color/white"
-            android:textSize="@dimen/infra_text_size"
-            android:gravity="center"
             android:id="@+id/leftSensorNumberData"
-            android:layout_margin="@dimen/infra_text_margin"/>
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/infra_text_margin"
+            android:background="@color/white"
+            android:gravity="center"
             android:padding="@dimen/ultra_padding"
-            android:layout_toRightOf="@id/leftSensorNumberData"
+            android:text="@string/default_infra_data"
+            android:textColor="@color/black"
+            android:textSize="@dimen/infra_text_size" />
+
+        <TextView
             android:id="@+id/middleSensorNumberData"
-            android:layout_margin="@dimen/infra_text_margin"
-            android:background="@color/white"
-            android:textColor="@color/black"
-            android:textSize="@dimen/infra_text_size"
-            android:text="@string/default_infra_data"
-            android:gravity="center"/>
-        <TextView
             android:layout_width="wrap_content"
-            android:padding="@dimen/ultra_padding"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/middleSensorNumberData"
-            android:id="@+id/rightSensorNumberData"
             android:layout_margin="@dimen/infra_text_margin"
+            android:layout_toRightOf="@id/leftSensorNumberData"
             android:background="@color/white"
-            android:textColor="@color/black"
-            android:textSize="@dimen/infra_text_size"
+            android:gravity="center"
+            android:padding="@dimen/ultra_padding"
             android:text="@string/default_infra_data"
-            android:gravity="center"/>
+            android:textColor="@color/black"
+            android:textSize="@dimen/infra_text_size" />
+
+        <TextView
+            android:id="@+id/rightSensorNumberData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/infra_text_margin"
+            android:layout_toEndOf="@id/middleSensorNumberData"
+            android:layout_toRightOf="@id/middleSensorNumberData"
+            android:background="@color/white"
+            android:gravity="center"
+            android:padding="@dimen/ultra_padding"
+            android:text="@string/default_infra_data"
+            android:textColor="@color/black"
+            android:textSize="@dimen/infra_text_size" />
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/turnOnBtn"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_alignLeft="@+id/indicatorsContainer"
+        android:layout_alignStart="@+id/indicatorsContainer"
+        android:layout_below="@+id/indicatorsContainer"
+        android:text="@string/on"
+        android:textColor="@color/black" />
+
+    <Button
+        android:id="@+id/turnOffBtn"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_alignEnd="@+id/indicatorsContainer"
+        android:layout_alignRight="@+id/indicatorsContainer"
+        android:layout_below="@+id/indicatorsContainer"
+        android:text="@string/off"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/seekbar_data"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/indicatorsContainer"
+        android:layout_centerHorizontal="true"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="@string/default_infra_data"
+        android:textColor="@color/black"
+        android:textSize="25sp" />
+
+    <SeekBar
+        android:id="@+id/seekbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/indicatorsContainer"
+        android:layout_alignLeft="@+id/indicatorsContainer"
+        android:layout_alignRight="@+id/indicatorsContainer"
+        android:layout_alignStart="@+id/indicatorsContainer"
+        android:layout_below="@id/turnOffBtn"
+        android:layout_marginTop="20dp"
+        android:background="@color/white" />
+
     <ImageView
         android:layout_width="@dimen/arrow_size"
         android:layout_height="@dimen/arrow_size"

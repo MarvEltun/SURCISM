@@ -35,20 +35,22 @@ import java.util.UUID;
 public class HomePageActivity extends AppCompatActivity {
 
 
+    public ConnectBT connectBT;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        // ConnectBT connectBT = new ConnectBT();
-        // connectBT.execute();
+        connectBT = new ConnectBT();
+        connectBT.execute();
         setSupportActionBar((Toolbar) findViewById(R.id.mainToolbar));
         if (savedInstanceState == null) {
             openFragment(new HomePageFragment(), HomePageFragment.classTitle, false);
-        }else{
+        } else {
             //Todo: This is kind of hard coded solution.
             //Todo: This line should be replaced with much more universal solution.
             //Todo: It says that screen can be landscape mode only in remote control fragment.
-          //  openFragment(new RemoteControlFragment(), RemoteControlFragment.classTitle, true);
+            //  openFragment(new RemoteControlFragment(), RemoteControlFragment.classTitle, true);
         }
     }
 
@@ -90,12 +92,12 @@ public class HomePageActivity extends AppCompatActivity {
     }
 
 
-    private class ConnectBT extends AsyncTask<Void, Void, Void>  // UI thread
+    public class ConnectBT extends AsyncTask<Void, Void, Void>  // UI thread
     {
 
         private ProgressDialog progress;
         BluetoothAdapter myBluetooth = null;
-        BluetoothSocket btSocket = null;
+        public BluetoothSocket btSocket = null;
         private boolean isBtConnected = false;
         final UUID myUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
@@ -134,7 +136,6 @@ public class HomePageActivity extends AppCompatActivity {
                 HomePageActivity.this.finish();
             } else {
                 Toast.makeText(HomePageActivity.this, HomePageActivity.this.getString(R.string.connected), Toast.LENGTH_LONG).show();
-
                 isBtConnected = true;
             }
             progress.dismiss();

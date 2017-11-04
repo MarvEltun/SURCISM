@@ -73,16 +73,20 @@ public class HomePageActivity extends AppCompatActivity {
         Intent intent;
         switch (v.getId()) {
             case R.id.ultra_sonic:
+                sendData('u');
                 openFragment(new UltraSonicFragment(), UltraSonicFragment.classTitle, true);
                 break;
             case R.id.infrared:
+                sendData('i');
                 openFragment(new InfraRedFragment(), InfraRedFragment.classTitle, true);
                 break;
             case R.id.rc:
+                sendData('r');
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                 openFragment(new RemoteControlFragment(), RemoteControlFragment.classTitle, true);
                 break;
             case R.id.self_balance:
+                sendData('s');
                 intent = new Intent(HomePageActivity.this, SelfBalanceActivity.class);
                 startActivity(intent);
                 break;
@@ -90,7 +94,17 @@ public class HomePageActivity extends AppCompatActivity {
 
         }
     }
+    public void sendData(char nameOfModule)
+    {
+        if (connectBT.btSocket != null) {
+            try {
+                connectBT.btSocket.getOutputStream().write(("p" + String.valueOf(nameOfModule)).getBytes());
+            } catch (IOException e) {
+                Toast.makeText(getApplicationContext(),getString(R.string.error), Toast.LENGTH_LONG).show();
+            }
+        }
 
+    }
 
     public class ConnectBT extends AsyncTask<Void, Void, Void>  // UI thread
     {

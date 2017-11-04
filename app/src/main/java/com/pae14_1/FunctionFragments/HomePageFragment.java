@@ -42,4 +42,6 @@ public class HomePageFragment extends MainFragment {
     public void initUI(){
 
     }
+
+
 }

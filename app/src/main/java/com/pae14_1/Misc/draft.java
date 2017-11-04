@@ -1,7 +1,9 @@
-package com.pae14_1;
+package com.pae14_1.Misc;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.pae14_1.R;
 
 public class draft extends AppCompatActivity {
 

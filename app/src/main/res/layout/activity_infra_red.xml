@@ -6,99 +6,11 @@
     android:layout_height="match_parent"
     android:background="@color/mainBckColor">
     <android.support.v7.widget.Toolbar
-        android:id="@+id/mainToolbar"
+        android:id="@+id/infraToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/mainToolbar"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/colorData">
-    <View
-        android:layout_width="@dimen/infra_color_size"
-        android:layout_height="@dimen/infra_color_size"
-        android:background="@drawable/circular_button"
-        android:backgroundTint="@color/white"
-        android:id="@+id/leftSensorColorData"
-        android:layout_margin="@dimen/infra_color_margin"
-        >
 
-    </View>
-    <View
-        android:layout_width="@dimen/infra_color_size"
-        android:layout_height="@dimen/infra_color_size"
-        android:background="@drawable/circular_button"
-        android:id="@+id/middleSensorColorData"
-        android:layout_toRightOf="@id/leftSensorColorData"
-        android:backgroundTint="@color/black"
-        android:layout_margin="@dimen/infra_color_margin"
-        >
-
-    </View>
-    <View
-        android:layout_width="@dimen/infra_color_size"
-        android:layout_height="@dimen/infra_color_size"
-        android:background="@drawable/circular_button"
-        android:id="@+id/rightSensorColorData"
-        android:layout_toRightOf="@id/middleSensorColorData"
-        android:backgroundTint="@color/white"
-        android:layout_margin="@dimen/infra_color_margin"
-        >
-
-    </View>
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/colorData"
-        android:layout_margin="@dimen/infra_text_margin"
-       android:layout_centerHorizontal="true"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/ultra_padding"
-            android:textColor="@color/black"
-            android:text="@string/default_infra_data"
-            android:background="@color/white"
-            android:textSize="@dimen/infra_text_size"
-            android:gravity="center"
-            android:id="@+id/leftSensorNumberData"
-            android:layout_margin="@dimen/infra_text_margin"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/ultra_padding"
-            android:layout_toRightOf="@id/leftSensorNumberData"
-            android:id="@+id/middleSensorNumberData"
-            android:layout_margin="@dimen/infra_text_margin"
-            android:background="@color/white"
-            android:textColor="@color/black"
-            android:textSize="@dimen/infra_text_size"
-            android:text="@string/default_infra_data"
-            android:gravity="center"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:padding="@dimen/ultra_padding"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/middleSensorNumberData"
-            android:id="@+id/rightSensorNumberData"
-            android:layout_margin="@dimen/infra_text_margin"
-            android:background="@color/white"
-            android:textColor="@color/black"
-            android:textSize="@dimen/infra_text_size"
-            android:text="@string/default_infra_data"
-            android:gravity="center"/>
-    </RelativeLayout>
-    <ImageView
-        android:layout_width="@dimen/arrow_size"
-        android:layout_height="@dimen/arrow_size"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/forward_black"
-        android:tint="@color/white" />
 </RelativeLayout>

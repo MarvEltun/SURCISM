@@ -14,6 +14,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.pae14_1.Misc.Globals;
+
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -35,9 +37,10 @@ public class ConnectActivity extends AppCompatActivity {
             // Make an intent to start next activity.
             Intent i = new Intent(ConnectActivity.this, HomePageActivity.class);
             //Change the activity.
-            Toast.makeText(getApplicationContext(), address, Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(), address, Toast.LENGTH_LONG).show();
             //i.putExtra(EXTRA_ADDRESS, address); //this will be received at ledControl (class) Activity
             startActivity(i);
+            ConnectActivity.this.finish();
         }
     };
 
@@ -107,7 +110,6 @@ public class ConnectActivity extends AppCompatActivity {
         devicelist.setAdapter(adapter);
         devicelist.setOnItemClickListener(myListClickListener); //Method called when the device from the list is clicked
     }
-
 
     private void makeListVisible() {
         devicelist.setVisibility(View.VISIBLE);

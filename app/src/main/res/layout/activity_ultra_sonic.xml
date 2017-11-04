@@ -7,43 +7,13 @@
     android:background="@color/mainBckColor">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/mainToolbar"
+        android:id="@+id/ultraToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-    <TextView
-        android:id="@+id/main_dist_indicator"
-        android:layout_width="@dimen/ultra_txt_width"
-        android:layout_height="@dimen/ultra_txt_height"
-        android:layout_below="@+id/mainToolbar"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/circ_button_margin"
-        android:background="@color/white"
-        android:gravity="center"
-        android:text="@string/default_ultra_indication"
-        android:textColor="@color/black"
-        android:textSize="@dimen/ultra_text_size" />
 
-    <TextView
-        android:id="@+id/dist_log"
-        android:layout_width="@dimen/ultra_txt_width"
-        android:layout_height="@dimen/ultra_log_txt_height"
-        android:layout_below="@+id/main_dist_indicator"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/circ_button_margin"
-        android:background="@color/gray"
-        android:text="@string/default_ultra_log"
-        android:textColor="@color/white" />
-
-    <ImageView
-        android:layout_width="@dimen/arrow_size"
-        android:layout_height="@dimen/arrow_size"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/forward_black"
-        android:tint="@color/white" />
 
 </RelativeLayout>

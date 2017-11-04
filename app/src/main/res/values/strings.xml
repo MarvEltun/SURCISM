@@ -18,6 +18,10 @@
     <string name="cnt_failed">Connection Failed. Is it a SPP Bluetooth? Try again</string>
     <string name="connected">CONNECTED</string>
 
+    <string name="error">ERROR</string>
+
+    <string name="on">Turn On</string>
+    <string name="off">Turn Off</string>
 
 
 </resources>

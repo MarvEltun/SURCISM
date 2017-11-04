@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@id/mainToolbar"
+    android:background="@color/mainBckColor">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:id="@+id/main_dist_indicator"
+            android:layout_width="@dimen/ultra_txt_width"
+            android:layout_height="@dimen/ultra_txt_height"
+            android:layout_below="@+id/ultraToolbar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/circ_button_margin"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="@string/default_ultra_indication"
+            android:textColor="@color/black"
+            android:textSize="@dimen/ultra_text_size" />
+
+        <TextView
+            android:id="@+id/dist_log"
+            android:layout_width="@dimen/ultra_txt_width"
+            android:layout_height="@dimen/ultra_log_txt_height"
+            android:layout_below="@+id/main_dist_indicator"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/circ_button_margin"
+            android:background="@color/gray"
+            android:text="@string/default_ultra_log"
+            android:textColor="@color/white" />
+
+        <ImageView
+            android:layout_width="@dimen/arrow_size"
+            android:layout_height="@dimen/arrow_size"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/forward_black"
+            android:tint="@color/white" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

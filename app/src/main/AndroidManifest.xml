@@ -17,6 +17,7 @@
             android:name=".Misc.draft"
             android:screenOrientation="portrait"></activity>
 
+
         <activity
             android:name=".ConnectActivity"
             android:screenOrientation="portrait"

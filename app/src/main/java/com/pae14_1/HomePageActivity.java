@@ -20,6 +20,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
 import com.pae14_1.FunctionFragments.HomePageFragment;
 import com.pae14_1.FunctionFragments.InfraRedActivity;
 import com.pae14_1.FunctionFragments.InfraRedFragment;
@@ -38,29 +39,33 @@ import java.io.IOException;
 
 import java.util.UUID;
 
+import static com.pae14_1.Globals.connectBT;
+
 public class HomePageActivity extends AppCompatActivity {
 
-
-    public ConnectBT connectBT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        connectBT = new ConnectBT();
-        connectBT.execute();
         setSupportActionBar((Toolbar) findViewById(R.id.mainToolbar));
         if (savedInstanceState == null) {
             openFragment(new HomePageFragment(), HomePageFragment.classTitle, false);
+            connectBT = new ConnectBT();
+            connectBT.execute();
         } else {
+            List<Fragment> arrayList = getSupportFragmentManager().getFragments();
+
+            int index = getActiveFragmentIndex(arrayList);
+
+            getSupportActionBar().setDisplayHomeAsUpEnabled(index == 1);
+
             //Todo: This is kind of hard coded solution.
             //Todo: This line should be replaced with much more universal solution.
             //Todo: It says that screen can be landscape mode only in remote control fragment.
             //  openFragment(new RemoteControlFragment(), RemoteControlFragment.classTitle, true);
         }
-
-      
     }
 
     private void openFragment(MainFragment fragmentClass, String title, boolean backEnabled) {
@@ -82,20 +87,20 @@ public class HomePageActivity extends AppCompatActivity {
         Intent intent;
         switch (v.getId()) {
             case R.id.ultra_sonic:
-                sendData('u');
+                sendData("m", "u");
                 openFragment(new UltraSonicFragment(), UltraSonicFragment.classTitle, true);
                 break;
             case R.id.infrared:
-                sendData('i');
+                sendData("m", "i");
                 openFragment(new InfraRedFragment(), InfraRedFragment.classTitle, true);
                 break;
             case R.id.rc:
-                sendData('r');
+                sendData("m", "r");
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                 openFragment(new RemoteControlFragment(), RemoteControlFragment.classTitle, true);
                 break;
             case R.id.self_balance:
-                sendData('s');
+                sendData("m", "s");
                 intent = new Intent(HomePageActivity.this, SelfBalanceActivity.class);
                 startActivity(intent);
                 break;
@@ -103,13 +108,13 @@ public class HomePageActivity extends AppCompatActivity {
 
         }
     }
-    public void sendData(char nameOfModule)
-    {
+
+    public void sendData(String initial, String nameOfModule) {
         if (connectBT.btSocket != null) {
             try {
-                connectBT.btSocket.getOutputStream().write(("p" + String.valueOf(nameOfModule)).getBytes());
+                connectBT.btSocket.getOutputStream().write((initial + nameOfModule).getBytes());
             } catch (IOException e) {
-                Toast.makeText(getApplicationContext(),getString(R.string.error), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.error), Toast.LENGTH_LONG).show();
             }
         }
 
@@ -194,6 +199,18 @@ public class HomePageActivity extends AppCompatActivity {
     public void onBackPressed() {
         List<Fragment> arrayList = getSupportFragmentManager().getFragments();
 
+        int index = getActiveFragmentIndex(arrayList);
+
+        if ((index + 1) > 1) {
+            ((MainFragment) arrayList.get(index)).onBackPressed();
+        } else {
+            super.onBackPressed();
+        }
+
+    }
+
+
+    public int getActiveFragmentIndex(List<Fragment> arrayList) {
         //Todo: optimize this algo!
         int count = 0;
         for (Fragment item : arrayList) {
@@ -203,15 +220,7 @@ public class HomePageActivity extends AppCompatActivity {
                 break;
             }
         }
-        if (count > 1) {
-            ((MainFragment) arrayList.get(count - 1)).onBackPressed();
-        } else {
-            super.onBackPressed();
-        }
-
+        return --count;
     }
-
-
-
 
 }

@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:layout_below="@id/mainToolbar"
     android:background="@color/mainBckColor">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,25 +16,28 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1.5"
-            android:gravity="center"
-            >
+            android:gravity="center">
+
             <ImageButton
+                android:id="@+id/left"
                 android:layout_width="@dimen/direction_button_size"
                 android:layout_height="@dimen/direction_button_size"
-                android:background="@drawable/circular_button"
-                android:scaleType="fitCenter"
-                android:src="@drawable/left_black"
-                android:id="@+id/left_control"
-                android:layout_margin="@dimen/control_button_margin"/>
-            <ImageButton
-                android:layout_width="@dimen/direction_button_size"
-                android:layout_height="@dimen/direction_button_size"
-                android:background="@drawable/circular_button"
-                android:layout_toRightOf="@id/left_control"
+                android:tag="l"
                 android:layout_margin="@dimen/control_button_margin"
+                android:background="@drawable/circular_button"
                 android:scaleType="fitCenter"
-                android:src="@drawable/right_black"
-                />
+                android:src="@drawable/left_black" />
+
+            <ImageButton
+                android:id="@+id/right"
+                android:layout_width="@dimen/direction_button_size"
+                android:layout_height="@dimen/direction_button_size"
+                android:layout_margin="@dimen/control_button_margin"
+                android:layout_toRightOf="@id/left"
+                android:background="@drawable/circular_button"
+                android:scaleType="fitCenter"
+                android:tag="r"
+                android:src="@drawable/right_black" />
 
         </RelativeLayout>
 
@@ -41,50 +45,57 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:gravity="center"
-            >
+            android:gravity="center">
+
             <ImageButton
+
+                android:id="@+id/start"
                 android:layout_width="@dimen/start_stop_button_size"
                 android:layout_height="@dimen/start_stop_button_size"
-                android:background="@drawable/circular_button"
-                android:scaleType="fitCenter"
-                android:src="@drawable/start_black"
-                android:id="@+id/start_control"
-                android:layout_margin="@dimen/control_button_margin"/>
-            <ImageButton
-                android:layout_width="@dimen/start_stop_button_size"
-                android:layout_height="@dimen/start_stop_button_size"
-                android:background="@drawable/circular_button"
                 android:layout_margin="@dimen/control_button_margin"
+                android:tag="s"
+                android:background="@drawable/circular_button"
                 android:scaleType="fitCenter"
-                android:src="@drawable/stop_black"
-                android:layout_below="@id/start_control"
-                />
+                android:src="@drawable/start_black" />
+
+            <ImageButton
+                android:id="@+id/additional"
+                android:layout_width="@dimen/start_stop_button_size"
+                android:layout_height="@dimen/start_stop_button_size"
+                android:layout_below="@id/start"
+                android:tag="a"
+                android:layout_margin="@dimen/control_button_margin"
+                android:background="@drawable/circular_button"
+                android:scaleType="fitCenter"
+                android:src="@drawable/stop_black" />
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1.5"
-            android:gravity="center"
-            >
+            android:gravity="center">
+
             <ImageButton
+                android:id="@+id/forward"
+                android:tag="f"
                 android:layout_width="@dimen/direction_button_size"
                 android:layout_height="@dimen/direction_button_size"
-                android:background="@drawable/circular_button"
-                android:scaleType="fitCenter"
-                android:src="@drawable/forward_black"
-                android:id="@+id/forward_control"
-                android:layout_margin="@dimen/control_button_margin"/>
-            <ImageButton
-                android:layout_width="@dimen/direction_button_size"
-                android:layout_height="@dimen/direction_button_size"
-                android:background="@drawable/circular_button"
-                android:layout_below="@id/forward_control"
                 android:layout_margin="@dimen/control_button_margin"
+                android:background="@drawable/circular_button"
                 android:scaleType="fitCenter"
-                android:src="@drawable/reverse_black"
-                />
+                android:src="@drawable/forward_black" />
+
+            <ImageButton
+                android:id="@+id/backward"
+                android:tag="b"
+                android:layout_width="@dimen/direction_button_size"
+                android:layout_height="@dimen/direction_button_size"
+                android:layout_below="@id/forward"
+                android:layout_margin="@dimen/control_button_margin"
+                android:background="@drawable/circular_button"
+                android:scaleType="fitCenter"
+                android:src="@drawable/reverse_black" />
         </RelativeLayout>
 
     </LinearLayout>

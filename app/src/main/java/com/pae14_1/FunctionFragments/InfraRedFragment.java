@@ -17,6 +17,8 @@ import com.pae14_1.R;
 
 import java.io.IOException;
 
+import static com.pae14_1.Globals.connectBT;
+
 /**
  * Created by MarvEltun on 03/11/2017.
  */
@@ -57,7 +59,7 @@ public class InfraRedFragment extends MainFragment {
                     double value = (progress / 100.0) * 255.0;
                     ((TextView) rootView.findViewById(R.id.seekbar_data)).setText(String.valueOf(Math.floor(value)));
                     try {
-                        ((HomePageActivity) getActivity()).connectBT.btSocket
+                        connectBT.btSocket
                                 .getOutputStream().write(("b" + String.valueOf(progress) + "e").getBytes());
                     } catch (IOException e) {
 
@@ -94,9 +96,9 @@ public class InfraRedFragment extends MainFragment {
     }
 
     private void turnOffLed() {
-        if (((HomePageActivity) getActivity()).connectBT.btSocket != null) {
+        if (connectBT.btSocket != null) {
             try {
-                ((HomePageActivity) getActivity()).connectBT.btSocket.getOutputStream().write("F".getBytes());
+                connectBT.btSocket.getOutputStream().write("F".getBytes());
             } catch (IOException e) {
                 Toast.makeText(getActivity(), getActivity().getString(R.string.error), Toast.LENGTH_LONG).show();
             }
@@ -104,9 +106,9 @@ public class InfraRedFragment extends MainFragment {
     }
 
     private void turnOnLed() {
-        if (((HomePageActivity) getActivity()).connectBT.btSocket != null) {
+        if (connectBT.btSocket != null) {
             try {
-                ((HomePageActivity) getActivity()).connectBT.btSocket.getOutputStream().write("O".getBytes());
+                connectBT.btSocket.getOutputStream().write("O".getBytes());
             } catch (IOException e) {
                 Toast.makeText(getActivity(), getActivity().getString(R.string.error), Toast.LENGTH_LONG).show();
             }

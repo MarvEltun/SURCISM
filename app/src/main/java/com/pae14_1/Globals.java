@@ -6,4 +6,5 @@ package com.pae14_1;
 
 public class Globals {
     public static String address = "";
+    public static HomePageActivity.ConnectBT connectBT;
 }

@@ -34,7 +34,7 @@ public class RemoteControlFragment extends MainFragment {
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((HomePageActivity) getActivity()).sendData("r", v.getTag().toString());
+                ((HomePageActivity) getActivity()).sendData(v.getTag().toString());
             }
         };
         rootView.findViewById(R.id.left).setOnClickListener(onClickListener);

@@ -87,20 +87,20 @@ public class HomePageActivity extends AppCompatActivity {
         Intent intent;
         switch (v.getId()) {
             case R.id.ultra_sonic:
-                sendData("m", "u");
+                sendData("2");
                 openFragment(new UltraSonicFragment(), UltraSonicFragment.classTitle, true);
                 break;
             case R.id.infrared:
-                sendData("m", "i");
+                sendData("1");
                 openFragment(new InfraRedFragment(), InfraRedFragment.classTitle, true);
                 break;
             case R.id.rc:
-                sendData("m", "r");
+                sendData("3");
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                 openFragment(new RemoteControlFragment(), RemoteControlFragment.classTitle, true);
                 break;
             case R.id.self_balance:
-                sendData("m", "s");
+                sendData("4");
                 intent = new Intent(HomePageActivity.this, SelfBalanceActivity.class);
                 startActivity(intent);
                 break;
@@ -109,10 +109,10 @@ public class HomePageActivity extends AppCompatActivity {
         }
     }
 
-    public void sendData(String initial, String nameOfModule) {
+    public void sendData(String nameOfModule) {
         if (connectBT.btSocket != null) {
             try {
-                connectBT.btSocket.getOutputStream().write((initial + nameOfModule).getBytes());
+                connectBT.btSocket.getOutputStream().write((nameOfModule).getBytes());
             } catch (IOException e) {
                 Toast.makeText(getApplicationContext(), getString(R.string.error), Toast.LENGTH_LONG).show();
             }

@@ -2,6 +2,8 @@ package com.pae14_1;
 
 
 import android.content.pm.ActivityInfo;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 
@@ -17,6 +19,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -33,6 +36,7 @@ import com.pae14_1.FunctionFragments.UltraSonicFragment;
 import com.pae14_1.Misc.Globals;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
@@ -128,7 +132,7 @@ public class HomePageActivity extends AppCompatActivity {
         public BluetoothSocket btSocket = null;
         private boolean isBtConnected = false;
         final UUID myUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
-
+        public InputStream mmInStream = null;
 
         private boolean ConnectSuccess = true; //if it's here, it's almost connected
 
@@ -152,6 +156,8 @@ public class HomePageActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... devices) //while the progress dialog is shown, the connection is done in background
         {
+
+
             try {
                 if (btSocket == null || !isBtConnected) {
                     myBluetooth = BluetoothAdapter.getDefaultAdapter();//get the mobile bluetooth device
@@ -159,6 +165,7 @@ public class HomePageActivity extends AppCompatActivity {
                     btSocket = dispositivo.createInsecureRfcommSocketToServiceRecord(myUUID);//create a RFCOMM (SPP) connection
                     BluetoothAdapter.getDefaultAdapter().cancelDiscovery();
                     btSocket.connect();//start connection
+                    mmInStream = btSocket.getInputStream();
                 }
             } catch (IOException e) {
                 ConnectSuccess = false;//if the try failed, you can check the exception here
@@ -179,6 +186,27 @@ public class HomePageActivity extends AppCompatActivity {
                 isBtConnected = true;
             }
             progress.dismiss();
+        }
+
+        public void runReader(Handler bluetoothIn, int handlerState) {
+            byte[] buffer = new byte[256];
+            int bytes;
+
+            // Keep looping to listen for received messages
+            while (true) {
+                try {
+                    Log.i("kj", "kdfghjkbj");
+                    bytes = mmInStream.read(buffer);            //read bytes from input buffer
+                    String readMessage = new String(buffer, 0, bytes);
+                    // Send the obtained bytes to the UI Activity via handler
+                    Message msg = bluetoothIn.obtainMessage(handlerState, bytes, -1, readMessage);//.sendToTarget();
+                    bluetoothIn.handleMessage(msg);
+                } catch (IOException e) {
+                    Log.i("kj", "kdfghjkbkjhgfdsasdfghjkj");
+
+                    break;
+                }
+            }
         }
     }
 
